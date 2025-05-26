@@ -36,4 +36,7 @@ def analyze_with_openai(image_path,lang):
         model="gpt-4o",
         messages=messages
     )
-    return response.choices[0].message.content
+
+    answer = response.choices[0].message.content
+
+    return answer

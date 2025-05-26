@@ -1,6 +1,6 @@
 import gradio as gr
 import os
-from tools import analyze_with_gigachat, analyze_with_openai
+from tools import analyze_with_gigachat, analyze_with_openai, find_repair_services
 
 def gradio_interface():
     with gr.Blocks() as demo:
@@ -16,7 +16,11 @@ def gradio_interface():
             image_preview = gr.Image(label="Предпросмотр изображения", type="filepath")
 
         analyze_button = gr.Button("Определить повреждения")
-        result_box = gr.Textbox(label="Результат", lines=10)
+        result_box = gr.Textbox(label="Описание повреждений", lines=10)
+
+        city_input = gr.Textbox(label="Город", placeholder="Введите город для поиска автосервисов")
+        find_button = gr.Button("Найти автосервис")
+        service_output = gr.Textbox(label="Найденные автосервисы", lines=6)
 
         def preview_uploaded(file):
             return file.name if file else None
