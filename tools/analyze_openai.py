@@ -6,7 +6,7 @@ from tools.prompts import SYSTEM_PROMPT_EN, SYSTEM_PROMPT_RU, USER_PROMPT_EN, US
 
 load_dotenv()
 
-def analyze_with_openai(image_path,lang):
+def analyze_with_openai(image_path, lang):
     openai.api_key = os.getenv("OPENAI_API_KEY")
 
     with open(image_path, "rb") as img_file:
